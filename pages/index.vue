@@ -12,7 +12,12 @@
               My finest Nuxt.js project
             </h2>
           </div>
-          <div class="column is-half" v-for="(item, i) in items" :key="i">
+          <nuxt-link
+            :to="{ name: 'item-id', params: { id: item.id } }"
+            class="column is-half"
+            v-for="(item, i) in items"
+            :key="i"
+          >
             <div class="card">
               <div class="card-content">
                 <div class="media ">
@@ -33,7 +38,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </nuxt-link>
         </div>
       </div>
     </div>
