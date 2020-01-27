@@ -9,11 +9,7 @@
         My finest Nuxt.js project
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
         </a>
         <a
@@ -24,16 +20,28 @@
           GitHub
         </a>
       </div>
+      <pre>
+        {{ items }}
+      </pre>
     </div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import { db } from '~/plugins/firebase'
 
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      items: []
+    }
+  },
+  firestore: {
+    items: db.collection('items')
   }
 }
 </script>
