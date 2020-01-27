@@ -1,28 +1,41 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        firebase-crud
-      </h1>
-      <h2 class="subtitle">
-        My finest Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div class="container">
+        <div class="columns is-centered is-vcentered is-multiline is-3">
+          <div class="column is-full has-text-centered">
+            <logo />
+            <h1 class="title">
+              firebase-crud
+            </h1>
+            <h2 class="subtitle">
+              My finest Nuxt.js project
+            </h2>
+          </div>
+          <div class="column is-half" v-for="(item, i) in items" :key="i">
+            <div class="card">
+              <div class="card-content">
+                <div class="media ">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img
+                        src="https://picsum.photos/96"
+                        alt="Placeholder image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">{{ item.name }}</p>
+                    <p class="subtitle is-6 is-paddingless">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <pre>
-        {{ items }}
-      </pre>
     </div>
   </div>
 </template>
@@ -47,15 +60,6 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
