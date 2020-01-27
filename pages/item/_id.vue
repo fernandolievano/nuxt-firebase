@@ -1,9 +1,10 @@
 <template>
   <main class="container">
-    <h1 class="is-size-1">Edit Item</h1>
+    <h1 class="is-size-1">Item</h1>
 
     <div class="columns is-multiline is-centered">
       <div class="column is-7" v-if="item">
+        <h3 class="is-size-3">Edit</h3>
         <div class="card">
           <div class="card-content">
             <form @submit.prevent="_updateItem">
@@ -42,6 +43,18 @@
               </div>
             </form>
           </div>
+        </div>
+
+        <hr />
+
+        <h3 class="is-size-3">Delete</h3>
+        <div class="has-text-centered">
+          <button class="button is-light is-large" @click="_deleteItem">
+            <img
+              src="https://img.icons8.com/flat_round/64/000000/delete-sign.png"
+              width="32"
+            />
+          </button>
         </div>
       </div>
     </div>
@@ -84,6 +97,20 @@ export default {
           alert('success')
         })
         .catch(err => alert('error'))
+    },
+    _deleteItem() {
+      let ref = db.collection('items').doc(this.id)
+      const isConfirmed = confirm('are you sure?')
+
+      if (isConfirmed) {
+        ref.delete().then(() => {
+          alert('deleted')
+
+          this.$router.push('/')
+        })
+      } else {
+        alert('ok boomer')
+      }
     }
   }
 }
