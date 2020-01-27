@@ -56,7 +56,11 @@ export default {
     async _addItem() {
       await db
         .collection('items')
-        .doc('items')
+        .doc(
+          `nuxt-crud-${Math.random()
+            .toString(16)
+            .slice(2)}`
+        )
         .set({
           name: this.newItem.name,
           description: this.newItem.description
