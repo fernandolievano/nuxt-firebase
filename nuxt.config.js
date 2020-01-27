@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vuefire'],
+  plugins: ['~/plugins/vuefire', '~/plugins/firebase'],
   /*
    ** Nuxt.js dev-modules
    */
